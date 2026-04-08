@@ -1,15 +1,20 @@
 # python-repo-template
 
 ## Setup
-```sh
-# Install dependencies
-pipenv install --dev
 
-# Setup pre-commit and pre-push hooks
-pipenv run pre-commit install -t pre-commit
-pipenv run pre-commit install -t pre-push
+### 1. Create the micromamba environment
+```sh
+micromamba create -f environment.yml
+micromamba activate python-repo-template
 ```
 
+### 2. Install the poetry environment
+```sh
+poetry install
+```
 
-TD:
-- automate conda lock, toml file generation
+### 3. Install pre-commit hooks
+```sh
+pre-commit install -t pre-commit
+pre-commit install -t pre-push
+```
