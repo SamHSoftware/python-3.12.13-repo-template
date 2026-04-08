@@ -2,6 +2,7 @@
 
 from python_repo_template.script import placeholder
 
+
 def test_placeholder() -> None:
     """Tests placeholder function."""
     assert placeholder(-1) == -1
