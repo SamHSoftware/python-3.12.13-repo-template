@@ -37,7 +37,11 @@ FROM python:3.12.12-slim
 COPY --from=build /venv /venv
 
 # Prepend our venv path to PATH, such that our venv is searched first for executables e.g. python.
+# In other words, /venv/bin/python is now the active Python.
 ENV PATH="/venv/bin:${PATH}"
+
+# Specify that Poetry shouldn't create a new .venv folder.
+ENV POETRY_VIRTUALENVS_CREATE=false
 
 # Subsequent RUN commands will now look in in /venv/bin
 WORKDIR /opt/python-repo-template
@@ -45,8 +49,7 @@ WORKDIR /opt/python-repo-template
 # Copy code etc. from the build machine (excluding .dockerignore dirs) to our image
 COPY . .
 
-# Poetry will now install into /venv instead of making a new .venv dir.
-# explicitly point Poetry at the env’s Python (belt-and-braces)
-RUN poetry env use /venv/bin/python
-ENV POETRY_VIRTUALENVS_CREATE=false
-RUN poetry install && rm -rf /root/.cache/pypoetry
+# Install the package and it's dependencies into /venv.
+# --without dev stops the install of poetry dev dependency group (see poetry.toml).
+# Delete poetry's downloaded cache.
+RUN poetry install --without dev && rm -rf /root/.cache/pypoetry
