@@ -1,6 +1,6 @@
 """Tests placeholder function for CI/CD pipeline."""
 
-from Projects.python_repo_template.python_repo_template.script import placeholder
+from python_repo_template.python_repo_template.script import placeholder
 
 def test_placeholder() -> None:
     """Tests placeholder function."""
