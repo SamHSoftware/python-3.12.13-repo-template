@@ -7,7 +7,6 @@ FROM mambaorg/micromamba AS build
 
 # Install conda-lock (to to make the venv)
 # Install conda-pack (to make the venv relocatable)
-#NB: Add automated production of conda-lock upon push etc.
 RUN micromamba install -n base -c conda-forge conda-pack
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
 ENV PATH="/opt/conda/bin:${PATH}"
@@ -31,7 +30,7 @@ RUN /venv/bin/conda-unpack
 ################
 
 # Use an ubuntu image which doesn't have micromamaba.
-FROM python:3.12.12-slim
+FROM python:3.12.13-slim
 
 # Copy across our /venv folder.
 COPY --from=build /venv /venv
