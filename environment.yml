@@ -1,0 +1,10 @@
+name: python-repo-template
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.12.12
+  - poetry=1.8.2
+platforms:
+  - linux-64
