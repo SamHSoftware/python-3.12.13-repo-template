@@ -7,7 +7,7 @@ license = "MIT"
 authors = ["Sam Huguet <samhuguet1@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "3.12.12"
+python = "3.12.13"
 numpy = "2.3.5"
 
 [tool.poetry.group.dev.dependencies]
