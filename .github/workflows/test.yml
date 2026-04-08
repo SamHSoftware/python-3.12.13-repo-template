@@ -23,4 +23,4 @@ jobs:
       - name: Install dependencies 
         run: poetry install --with dev
 
-      - run: poetry run pytest --cov --cov-fail-under=90
+      - run: poetry run pytest --cov-fail-under=90

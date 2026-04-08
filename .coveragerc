@@ -1,5 +1,5 @@
 [run]
-source = genomic-region-identification
+source = python_repo_template 
 
 [report]
 # Specify which regex patterns to ignore when calculating coverage.
