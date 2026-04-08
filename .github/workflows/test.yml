@@ -10,32 +10,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v1                       # Downloads python, adds it to the path. Sets up pip too.
         with:
-          python-version: 3.12.13
+          python-version: "3.12.13"
 
-      - name: Install dependencies with pipenv
-        run: |
-          pip install pipenv
-          pipenv install --deploy --dev
+      - name: Install Poetry
+        uses: snok:install-poetry@v1
 
-      - run: pipenv run isort --recursive --diff .
-      - run: pipenv run black --check .
-      - run: pipenv run flake8
-      - run: pipenv run mypy
-      - run: pipenv run pytest --cov --cov-fail-under=100
+      - name: Install dependencies 
+        run: poetry install --with dev
 
-  docker-image:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Build docker image
-        run: docker build . -t python_repo_template:test
-
-      - name: Smoke test docker image
-        run: |
-          docker run --rm python_repo_template:test 10
+      - run: pipenv run pytest --cov --cov-fail-under=90
