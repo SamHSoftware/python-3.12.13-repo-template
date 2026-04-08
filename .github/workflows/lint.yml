@@ -14,7 +14,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12.13"
+          python-version: "3.12"
 
       - name: Install Poetry
         uses: snok/install-poetry@v1
@@ -25,5 +25,14 @@ jobs:
       - name: Install dependencies
         run: poetry install --with dev
 
-      - name: Style enforcement
-        run: poetry run bash scripts/style_enforcement.sh
+      - name: Black
+        run: poetry run black --check .
+
+      - name: isort
+        run: poetry run isort --check --diff .
+
+      - name: flake8
+        run: poetry run flake8 .
+
+      - name: mypy
+        run: poetry run mypy .
