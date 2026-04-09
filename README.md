@@ -1,3 +1,6 @@
+
+![Tests](https://github.com/{owner}/{repo}/actions/workflows/test.yml/badge.svg)
+
 # python-repo-template
 
 ## Setup
