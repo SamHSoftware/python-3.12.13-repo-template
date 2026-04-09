@@ -2,6 +2,7 @@
 
 ![Tests](https://github.com/SamHSoftware/python-3.12.13-repo-template/actions/workflows/test.yml/badge.svg)
 ![Lint](https://github.com/SamHSoftware/python-3.12.13-repo-template/actions/workflows/lint.yml/badge.svg)
+![Licence](https://img.shields.io/badge/Licence-MIT-blue)
 
 ## Setup
 
