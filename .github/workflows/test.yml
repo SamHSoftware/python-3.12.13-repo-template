@@ -23,4 +23,19 @@ jobs:
       - name: Install dependencies 
         run: poetry install --with dev
 
-      - run: poetry run pytest --cov-fail-under=90
+      - run: poetry run pytest --cov=python_repo_template --cov-report=json --cov-fail-under=90
+
+      - name: Extract coverage
+        run: |
+          COVERAGE=$(python -c "import json; print(round(json.load(open('coverage.json'))['totals']['percent_covered']))")
+          echo "COVERAGE=$COVERAGE" >> $GITHUB_ENV
+
+      - name: Update coverage badge Gist
+        uses: schneegans/dynamic-badges-action@v1.7.0
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gistID: your-gist-id
+          filename: coverage.json
+          label: Coverage
+          message: ${{ env.COVERAGE }}%
+          color: green
