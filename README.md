@@ -5,6 +5,8 @@
 ![Licence](https://img.shields.io/badge/Licence-MIT-blue)
 ![Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/SamHSoftware/72baafb92457db7916a1014ae5dd3d40/raw/coverage.json)
 
+A reusable Python repository template as per my preferences with a micromamba + Poetry environment, CI/CD via GitHub Actions, Docker image publishing to GHCR, pre-commit hooks for linting and testing, and code coverage reporting.
+
 ## Setup
 
 ### 1. Create the micromamba environment

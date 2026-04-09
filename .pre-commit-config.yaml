@@ -9,14 +9,6 @@ repos:
         always_run: true
         pass_filenames: false
 
-    -   id: pytest
-        name: pytest
-        stages: [push]
-        language: system
-        entry: pytest . -q
-        always_run: true
-        pass_filenames: false
-
     -   id: pytest-cov
         name: pytest-cov
         stages: [push]
