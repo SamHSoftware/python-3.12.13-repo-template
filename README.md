@@ -1,7 +1,7 @@
-
-![Tests](https://github.com/{owner}/{repo}/actions/workflows/test.yml/badge.svg)
-
 # python-repo-template
+
+![Tests](https://github.com/SamHSoftware/python-3.12.13-repo-template/actions/workflows/test.yml/badge.svg)
+![Lint](https://github.com/SamHSoftware/python-3.12.13-repo-template/actions/workflows/lint.yml/badge.svg)
 
 ## Setup
 
