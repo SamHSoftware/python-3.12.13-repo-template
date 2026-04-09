@@ -1,3 +1,5 @@
 .coverage
 poetry.lock
 *pycache*
+.mypy_cache/
+.pytest_cache/
